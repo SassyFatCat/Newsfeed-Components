@@ -50,7 +50,7 @@ function menuMaker(menuItemsArray) {
       $('.menu').slideUp(200)
     }
     else {
-    $('.menu').slideDown(800)
+    $('.menu').toggle('slide')
     }
     menu.classList.toggle('menu--open');
   });

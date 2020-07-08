@@ -135,7 +135,7 @@ date.textContent = articleInfoObj.date;
 paragraphOne.textContent = articleInfoObj.firstParagraph;
 paragraphTwo.textContent = articleInfoObj.secondParagraph;
 paragraphThree.textContent = articleInfoObj.thirdParagraph;
-expandButton.textContent = "+";
+expandButton.textContent = "Click to Expand";
 
 //ENABLING SLIDE TOGGLE FOR PARAGRAPHS
 articleDiv.style.height = 'auto';
@@ -143,7 +143,7 @@ articleDiv.addEventListener('click', event => { // I added the click event to th
   $(paragraphThree).slideToggle();
   $(paragraphTwo).slideToggle();
   $(paragraphOne).slideToggle();
-  event.stopPropagation();
+  expandButton.textContent === "Click to Expand" ? expandButton.textContent = "Click to Close" : expandButton.textContent = "Click to Expand";
 });
 
 return articleDiv
@@ -154,6 +154,7 @@ data.forEach(x => articles.appendChild(articleMaker(x)));
 
 // DISPLAY NONE FOR THE TEXT PARAGRAPHS
 document.querySelectorAll('.article p:not(.date)').forEach(x => x.style.display = 'none');
+
 
 //FADE IN EFFECT
 document.querySelectorAll('.article').forEach(x => x.style.display = 'none');
