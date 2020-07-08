@@ -137,8 +137,8 @@ paragraphTwo.textContent = articleInfoObj.secondParagraph;
 paragraphThree.textContent = articleInfoObj.thirdParagraph;
 expandButton.textContent = "+";
 
-expandButton.addEventListener('click', event => {
-  articleDiv.classList.toggle('article-open');
+title.addEventListener('click', event => { // I added the click event to the h2 because the button is too hard to press
+    articleDiv.classList.toggle('article-open');
 });
 
 return articleDiv

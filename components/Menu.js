@@ -47,10 +47,10 @@ function menuMaker(menuItemsArray) {
   const menuButton = document.querySelector('.menu-button');
   menuButton.addEventListener('click', event => {
     if (menu.classList.contains('menu--open')) {
-      $('.menu').slideUp()
+      $('.menu').slideUp(200)
     }
     else {
-    $('.menu').slideDown()
+    $('.menu').slideDown(800)
     }
     menu.classList.toggle('menu--open');
   });
