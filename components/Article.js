@@ -126,11 +126,16 @@ articleDiv.appendChild(paragraphTwo);
 articleDiv.appendChild(paragraphThree);
 articleDiv.appendChild(expandButton);
 
+articleDiv.classList.add('article');
+date.classList.add('date');
+expandButton.classList.add('expandButton');
+
 title.textContent = articleInfoObj.title;
 date.textContent = articleInfoObj.date;
 paragraphOne.textContent = articleInfoObj.firstParagraph;
 paragraphTwo.textContent = articleInfoObj.secondParagraph;
 paragraphThree.textContent = articleInfoObj.thirdParagraph;
+expandButton.textContent = "+";
 
 expandButton.addEventListener('click', event => {
   articleDiv.classList.toggle('article-open');
