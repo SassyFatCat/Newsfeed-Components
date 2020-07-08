@@ -137,23 +137,13 @@ paragraphTwo.textContent = articleInfoObj.secondParagraph;
 paragraphThree.textContent = articleInfoObj.thirdParagraph;
 expandButton.textContent = "+";
 
-$(paragraphThree).slideUp();
-$(paragraphTwo).slideUp();
-$(paragraphOne).slideUp();
+document.querySelectorAll('.article p:not(.date)').forEach(x => x.style.display = 'none');
 articleDiv.style.height = 'auto';
 articleDiv.addEventListener('click', event => { // I added the click event to the h2 because the button is too hard to press
-  
-  articleDiv.classList.toggle('slide');
-    if (articleDiv.classList.contains('slide')) {
-    $(paragraphThree).slideUp();
-    $(paragraphTwo).slideUp();
-    $(paragraphOne).slideUp();
-    }
-    else {
-    $(paragraphThree).slideDown();
-    $(paragraphTwo).slideDown();
-    $(paragraphOne).slideDown();
-    }
+  $(paragraphThree).slideToggle();
+  $(paragraphTwo).slideToggle();
+  $(paragraphOne).slideToggle();
+  event.stopPropagation();
 });
 
 return articleDiv
@@ -161,4 +151,3 @@ return articleDiv
 
 const articles = document.querySelector('.articles')
 data.forEach(x => articles.appendChild(articleMaker(x)));
-
