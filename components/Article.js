@@ -137,7 +137,7 @@ paragraphTwo.textContent = articleInfoObj.secondParagraph;
 paragraphThree.textContent = articleInfoObj.thirdParagraph;
 expandButton.textContent = "+";
 
-document.querySelectorAll('.article p:not(.date)').forEach(x => x.style.display = 'none');
+//ENABLING SLIDE TOGGLE FOR PARAGRAPHS
 articleDiv.style.height = 'auto';
 articleDiv.addEventListener('click', event => { // I added the click event to the h2 because the button is too hard to press
   $(paragraphThree).slideToggle();
@@ -151,3 +151,10 @@ return articleDiv
 
 const articles = document.querySelector('.articles')
 data.forEach(x => articles.appendChild(articleMaker(x)));
+
+// DISPLAY NONE FOR THE TEXT PARAGRAPHS
+document.querySelectorAll('.article p:not(.date)').forEach(x => x.style.display = 'none');
+
+//FADE IN EFFECT
+document.querySelectorAll('.article').forEach(x => x.style.display = 'none');
+$('.article').fadeIn(1500)
