@@ -125,4 +125,19 @@ articleDiv.appendChild(paragraphOne);
 articleDiv.appendChild(paragraphTwo);
 articleDiv.appendChild(paragraphThree);
 articleDiv.appendChild(expandButton);
+
+title.textContent = articleInfoObj.title;
+date.textContent = articleInfoObj.date;
+paragraphOne.textContent = articleInfoObj.firstParagraph;
+paragraphTwo.textContent = articleInfoObj.secondParagraph;
+paragraphThree.textContent = articleInfoObj.thirdParagraph;
+
+expandButton.addEventListener('click', event => {
+  articleDiv.classList.toggle('article-open');
+});
+
+return articleDiv
 }
+
+const articles = document.querySelector('.articles')
+data.forEach(x => articles.appendChild(articleMaker(x)));
