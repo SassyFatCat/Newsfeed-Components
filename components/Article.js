@@ -137,7 +137,7 @@ paragraphTwo.textContent = articleInfoObj.secondParagraph;
 paragraphThree.textContent = articleInfoObj.thirdParagraph;
 expandButton.textContent = "Click to Expand";
 
-//ENABLING SLIDE TOGGLE FOR PARAGRAPHS
+//ENABLING SLIDE TOGGLE FOR PARAGRAPHS AND ALTERNATING TEXT
 articleDiv.style.height = 'auto';
 articleDiv.addEventListener('click', event => { // I added the click event to the h2 because the button is too hard to press
   $(paragraphThree).slideToggle();
