@@ -98,9 +98,7 @@ const data = [
 
     <span class='expandButton'>+</span>
   </div>
-
   Hint: You will need to use createElement more than once here!
-
   Your function should take either an object as its one argument, or 5 separate strings mapping to each property of an article object.
 
   Step 2: Add an event listener to the expandButton span. This listener should toggle the class 'article-open' on the 'article' div.
@@ -111,3 +109,53 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(articleInfoObj) {
+const articleDiv = document.createElement('div');
+const title = document.createElement('h2');
+const date = document.createElement('p');
+const paragraphOne = document.createElement('p');
+const paragraphTwo = document.createElement('p');
+const paragraphThree = document.createElement('p');
+const expandButton = document.createElement('span');
+
+articleDiv.appendChild(title);
+articleDiv.appendChild(date);
+articleDiv.appendChild(paragraphOne);
+articleDiv.appendChild(paragraphTwo);
+articleDiv.appendChild(paragraphThree);
+articleDiv.appendChild(expandButton);
+
+articleDiv.classList.add('article');
+date.classList.add('date');
+expandButton.classList.add('expandButton');
+
+title.textContent = articleInfoObj.title;
+date.textContent = articleInfoObj.date;
+paragraphOne.textContent = articleInfoObj.firstParagraph;
+paragraphTwo.textContent = articleInfoObj.secondParagraph;
+paragraphThree.textContent = articleInfoObj.thirdParagraph;
+expandButton.textContent = "Click to Expand";
+
+//ENABLING SLIDE TOGGLE FOR PARAGRAPHS AND ALTERNATING TEXT
+articleDiv.style.height = 'auto';
+articleDiv.addEventListener('click', event => { // I added the click event to the h2 because the button is too hard to press
+  $(paragraphThree).slideToggle();
+  $(paragraphTwo).slideToggle();
+  $(paragraphOne).slideToggle();
+  expandButton.textContent === "Click to Expand" ? expandButton.textContent = "Click to Close" : expandButton.textContent = "Click to Expand";
+});
+
+return articleDiv
+}
+
+const articles = document.querySelector('.articles')
+data.forEach(x => articles.appendChild(articleMaker(x)));
+
+// DISPLAY NONE FOR THE TEXT PARAGRAPHS
+document.querySelectorAll('.article p:not(.date)').forEach(x => x.style.display = 'none');
+
+
+//FADE IN EFFECT
+document.querySelectorAll('.article').forEach(x => x.style.display = 'none');
+$('.article').fadeIn(1500)
